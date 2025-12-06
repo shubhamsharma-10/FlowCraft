@@ -18,4 +18,27 @@ model user {
   email    String @unique
   name     String
   password String
+
+  projects        project[]
+}
+
+model project {
+  id               String @id @default(cuid())
+  user_id          String
+  name             String
+  created_at       DateTime @default(now())
+  updated_at       DateTime @updatedAt
+  
+  project_files    project_file[]
+  user             user        @relation(fields: [user_id], references: [id])
+}
+
+model project_file {
+  id              String @id @default(cuid())
+  project_id      String
+  file_path       String
+  file_content    String
+  updated_at      DateTime @updatedAt
+
+  project         project    @relation(fields: [project_id], references: [id])
 }
