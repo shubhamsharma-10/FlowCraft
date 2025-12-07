@@ -29,7 +29,6 @@ const projectController = {
         console.log('Added to the queue ', job);
         return res.status(200).json({
             success: true,
-            status: 'queued',
             message: `Generated content for prompt: ${prompt}`,
             id: job.id,
             sessionId,

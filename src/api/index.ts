@@ -1,7 +1,7 @@
 import express, { Request, Response } from 'express';
-import authRouter from './api/routes/auth.route.js';
-import projectRouter from './api/routes/generate.route.js';
-import config from './utils/config.js';
+import authRouter from './routes/auth.route.js';
+import projectRouter from './routes/generate.route.js';
+import config from '../utils/config.js';
 import cors from 'cors';
 
 const app = express()
